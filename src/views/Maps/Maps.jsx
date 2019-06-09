@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   withScriptjs,
   withGoogleMap,
@@ -9,11 +9,23 @@ import {
 import TableChart from "@material-ui/icons/TableChart";
 import NumberStep from "./NumberStep";
 
+import transitions from "./transitions.css";
+
+import Button from "components/CustomButtons/Button.jsx";
+import Cadastro1 from "./cadastro1";
+import Cadastro2 from "./cadastro2";
+import Cadastro3 from "./cadastro3";
+
+import StepWizard from "react-step-wizard";
+import Nav from "./Nav";
 import {
   VerticalTimeline,
   VerticalTimelineElement
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+
+import PerfectScrollbar from "react-perfect-scrollbar";
+import "react-perfect-scrollbar/dist/css/styles.css";
 
 const CustomSkinMap = withScriptjs(
   withGoogleMap(props => (
@@ -90,113 +102,52 @@ const CustomSkinMap = withScriptjs(
   ))
 );
 
-function Maps({ ...props }) {
-  return (
-    <div>
-      <VerticalTimeline layout={"one-column"}>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2011 - present"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<NumberStep number={1} />}
-        >
-          <h3 className="vertical-timeline-element-title">Quantos dados</h3>
-          <h4 className="vertical-timeline-element-subtitle">Você Precisa?</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, Project
-            Management, Team Leading
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2010 - 2011"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">Art Director</h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            San Francisco, CA
-          </h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, SEO, Online
-            Marketing
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2008 - 2010"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">Web Designer</h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            Los Angeles, CA
-          </h4>
-          <p>User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2006 - 2008"
-          iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">Web Designer</h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            San Francisco, CA
-          </h4>
-          <p>User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="April 2013"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">
-            Content Marketing for Web, Mobile and Social Media
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
-          <p>Strategy, Social Media</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="November 2012"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">
-            Agile Development Scrum Master
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">Certification</h4>
-          <p>Creative Direction, User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          date="2002 - 2006"
-          iconStyle={{ background: "rgb(233, 30, 99)", color: "#fff" }}
-          icon={<TableChart />}
-        >
-          <h3 className="vertical-timeline-element-title">
-            Bachelor of Science in Interactive Digital Media Visual Imaging
-          </h3>
-          <h4 className="vertical-timeline-element-subtitle">
-            Bachelor Degree
-          </h4>
-          <p>Creative Direction, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          iconStyle={{ background: "rgb(16, 204, 82)", color: "#fff" }}
-          icon={<TableChart />}
-        />
-      </VerticalTimeline>
-      <CustomSkinMap
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `100vh` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    </div>
-  );
+class Maps extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      form: {},
+      transitions: {
+        enterRight: `${transitions.animated} ${transitions.enterRight}`,
+        enterLeft: `${transitions.animated} ${transitions.enterLeft}`,
+        exitRight: `${transitions.animated} ${transitions.exitRight}`,
+        exitLeft: `${transitions.animated} ${transitions.exitLeft}`,
+        intro: `${transitions.animated} ${transitions.intro}`
+      }
+      // demo: true, // uncomment to see more
+    };
+  }
+
+  updateForm = (key, value) => {
+    const { form } = this.state;
+
+    form[key] = value;
+    this.setState({ form });
+  };
+
+  onStepChange = stats => {
+    // console.log(stats);
+  };
+  setInstance = SW => this.setState({ SW });
+  render() {
+    const { classes } = this.props;
+    return (
+      <StepWizard
+        onStepChange={this.onStepChange}
+        isHashEnabled
+        transitions={this.state.transitions} // comment out this line to use default transitions
+        nav={<Nav />}
+        instance={this.setInstance}
+        nav={<Nav />}
+      >
+        <Cadastro1 />
+        <Cadastro2 />
+        <Cadastro3 className={classes} />
+        <Cadastro1 />
+      </StepWizard>
+    );
+  }
 }
 
 export default Maps;
