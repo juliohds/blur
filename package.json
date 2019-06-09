@@ -19,7 +19,8 @@
     "react-google-maps": "9.4.5",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
-    "react-swipeable-views": "0.13.1"
+    "react-swipeable-views": "0.13.1",
+    "react-vertical-timeline-component": "^2.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
