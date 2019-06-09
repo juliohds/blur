@@ -12,7 +12,6 @@ import NumberStep from "./NumberStep";
 import Button from "components/CustomButtons/Button.jsx";
 
 import ReactDOM from "react-dom";
-import Modal from "react-modal";
 
 import "react-autocomplete-input/dist/bundle.css";
 import Load from "./Load.jsx";
@@ -43,6 +42,8 @@ import Cadastro4 from "./cadastro4";
 import CardBody from "components/Card/CardBody.jsx";
 
 import { bugs, website, server } from "variables/general.jsx";
+
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 import {
   dailySalesChart,
@@ -107,6 +108,12 @@ export default class Cadastro3 extends Component {
 
   closeModal() {
     this.setState({ modalIsOpen: false });
+  }
+
+  toggle() {
+    this.setState(prevState => ({
+      modalIsOpen: !prevState.modalIsOpen
+    }));
   }
 
   render() {
@@ -202,21 +209,19 @@ export default class Cadastro3 extends Component {
         )}
         <Modal
           isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
+          toggle={this.toggle}
+          className={this.props.className}
         >
-          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody>Dados Comprados com sucesso</ModalBody>
+          <ModalFooter>
+            <Button color="info" onClick={this.toggle}>
+              Ver meus dados
+            </Button>{" "}
+            <Button color="secondary" onClick={this.toggle}>
+              Comprar mais
+            </Button>
+          </ModalFooter>
         </Modal>
       </VerticalTimeline>
     );

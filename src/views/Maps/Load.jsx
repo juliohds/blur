@@ -40,6 +40,7 @@ export default class Load extends Component {
             backgroundColor: "white"
           }}
         />
+        <div>validando dados cartão</div>
       </div>
     );
   }
