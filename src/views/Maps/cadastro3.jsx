@@ -110,11 +110,11 @@ export default class Cadastro3 extends Component {
     this.setState({ modalIsOpen: false });
   }
 
-  toggle() {
-    this.setState(prevState => ({
-      modalIsOpen: !prevState.modalIsOpen
-    }));
-  }
+  toggle = () => {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen
+    });
+  };
 
   render() {
     return (

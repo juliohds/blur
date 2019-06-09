@@ -64,9 +64,7 @@ const Sidebar = ({ ...props }) => {
                 />
               )}
               <ListItemText
-                primary={
-                  props.rtlActive ? prop.rtlName : prop.name
-                }
+                primary={props.rtlActive ? prop.rtlName : prop.name}
                 className={classNames(classes.itemText, whiteFontClasses, {
                   [classes.itemTextRTL]: props.rtlActive
                 })}
@@ -87,7 +85,12 @@ const Sidebar = ({ ...props }) => {
         })}
       >
         <div className={classes.logoImage}>
-          <img src={logo} alt="logo" className={classes.img} />
+          <img
+            src={logo}
+            alt="logo"
+            style={{ width: "90px" }}
+            className={classes.img}
+          />
         </div>
         {logoText}
       </a>
