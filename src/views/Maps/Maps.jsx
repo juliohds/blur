@@ -7,7 +7,7 @@ import {
 } from "react-google-maps";
 
 import TableChart from "@material-ui/icons/TableChart";
-import Filter1 from "@material-ui/icons/Filter1";
+import NumberStep from "./NumberStep";
 
 import {
   VerticalTimeline,
@@ -98,10 +98,10 @@ function Maps({ ...props }) {
           className="vertical-timeline-element--work"
           date="2011 - present"
           iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
-          icon={<div>1</div>}
+          icon={<NumberStep number={1} />}
         >
-          <h3 className="vertical-timeline-element-title">Creative Director</h3>
-          <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
+          <h3 className="vertical-timeline-element-title">Quantos dados</h3>
+          <h4 className="vertical-timeline-element-subtitle">Você Precisa?</h4>
           <p>
             Creative Direction, User Experience, Visual Design, Project
             Management, Team Leading
