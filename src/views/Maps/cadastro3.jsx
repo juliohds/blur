@@ -212,7 +212,7 @@ export default class Cadastro3 extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={this.toggle}>Informações Compra</ModalHeader>
           <ModalBody>Dados Comprados com sucesso</ModalBody>
           <ModalFooter>
             <Button color="info" onClick={this.toggle}>
