@@ -77,7 +77,7 @@ export default class Cadastro4 extends Component {
           className="vertical-timeline-element--work"
           date=""
           iconStyle={{ background: "rgb(44, 179, 49)", color: "#fff" }}
-          icon={<NumberStep number={4} />}
+          icon={<NumberStep number={5} />}
         >
           <h3 className="vertical-timeline-element-title">Confirmar Compra</h3>
           <div className="row">

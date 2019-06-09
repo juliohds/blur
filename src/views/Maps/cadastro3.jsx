@@ -112,26 +112,56 @@ export default class Cadastro3 extends Component {
                         tasks={bugs}
                       />
                     )
-                  },
+                  }
+                ]}
+              />
+            </GridItem>
+          </GridContainer>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+          id="buyData3"
+          style={{ textAlign: "center" }}
+          className="vertical-timeline-element--work"
+          date=""
+          iconStyle={{ background: "rgb(44, 179, 49)", color: "#fff" }}
+          icon={<NumberStep number={4} />}
+        >
+          <h3 className="vertical-timeline-element-title">
+            Quais dados Você Deseja?
+          </h3>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={12}>
+              <CustomTabs
+                title=""
+                headerColor="info"
+                style={{ backgroundColor: "rgb(0, 172, 193)" }}
+                tabs={[
                   {
-                    tabName: "Dados Comportamentais",
+                    tabName: "Dados De Renda",
                     tabIcon: Code,
                     tabContent: (
                       <Tasks
-                        checkedIndexes={[0]}
-                        tasksIndexes={[0, 1]}
-                        tasks={website}
-                      />
-                    )
-                  },
-                  {
-                    tabName: "Dados de Perfil",
-                    tabIcon: Code,
-                    tabContent: (
-                      <Tasks
-                        checkedIndexes={[1]}
-                        tasksIndexes={[0, 1, 2]}
-                        tasks={server}
+                        checkedIndexes={[0, 3]}
+                        tasksIndexes={[
+                          0,
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7,
+                          8,
+                          9,
+                          10,
+                          11,
+                          12,
+                          13,
+                          14,
+                          15,
+                          16
+                        ]}
+                        tasks={bugs}
                       />
                     )
                   }

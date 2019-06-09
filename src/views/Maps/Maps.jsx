@@ -15,6 +15,7 @@ import Button from "components/CustomButtons/Button.jsx";
 import Cadastro1 from "./cadastro1";
 import Cadastro2 from "./cadastro2";
 import Cadastro3 from "./cadastro3";
+import Cadastro4 from "./cadastro4";
 
 import StepWizard from "react-step-wizard";
 import Nav from "./Nav";
@@ -144,7 +145,7 @@ class Maps extends Component {
         <Cadastro1 />
         <Cadastro2 />
         <Cadastro3 className={classes} />
-        <Cadastro1 />
+        <Cadastro4 />
       </StepWizard>
     );
   }
