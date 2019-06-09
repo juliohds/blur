@@ -22,8 +22,12 @@ var bugs = [
   "DATA DA ULTIMA ATUALIZAÇÃO"
 ];
 var website = [
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
+  "ULTIMO SALARIO",
+  "LOCAL DE TRABALHO",
+  "CLASSE SOCIAL",
+  "ESTADO",
+  "CIDADE",
+  "BAIRRO"
 ];
 var server = [
   "Lines From Great Russian Literature? Or E-mails From My Boss?",

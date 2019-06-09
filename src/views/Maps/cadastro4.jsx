@@ -71,18 +71,21 @@ export default class Cadastro4 extends Component {
   render() {
     return (
       <VerticalTimeline layout={"one-column"}>
+        <h3 style={{ marginLeft: "35px" }}>Confirmar Compra</h3>
         <VerticalTimelineElement
           id="buyData3"
           style={{ textAlign: "center" }}
           className="vertical-timeline-element--work"
           date=""
           iconStyle={{ background: "rgb(44, 179, 49)", color: "#fff" }}
-          icon={<NumberStep number={5} />}
+          icon={<NumberStep number={6} />}
         >
-          <h3 className="vertical-timeline-element-title">Confirmar Compra</h3>
           <div className="row">
             <div className="col-md-12">
-              <h1>teste</h1>
+              <p>Dados Pessoais(18) - R$4,00</p>
+              <p>Dados de Perfil do usuário(6) - R$7,00</p>
+              <p>Taxa de manutenção - R$ 1,00</p>
+              <p>Total: 11,00</p>
             </div>
           </div>
         </VerticalTimelineElement>

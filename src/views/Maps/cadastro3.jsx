@@ -124,11 +124,8 @@ export default class Cadastro3 extends Component {
           className="vertical-timeline-element--work"
           date=""
           iconStyle={{ background: "rgb(44, 179, 49)", color: "#fff" }}
-          icon={<NumberStep number={4} />}
+          icon={<NumberStep number={5} />}
         >
-          <h3 className="vertical-timeline-element-title">
-            Quais dados Você Deseja?
-          </h3>
           <GridContainer>
             <GridItem xs={12} sm={12} md={12}>
               <CustomTabs
@@ -137,31 +134,13 @@ export default class Cadastro3 extends Component {
                 style={{ backgroundColor: "rgb(0, 172, 193)" }}
                 tabs={[
                   {
-                    tabName: "Dados De Renda",
+                    tabName: "Dados De Perfil Usuário",
                     tabIcon: Code,
                     tabContent: (
                       <Tasks
                         checkedIndexes={[0, 3]}
-                        tasksIndexes={[
-                          0,
-                          1,
-                          2,
-                          3,
-                          4,
-                          5,
-                          6,
-                          7,
-                          8,
-                          9,
-                          10,
-                          11,
-                          12,
-                          13,
-                          14,
-                          15,
-                          16
-                        ]}
-                        tasks={bugs}
+                        tasksIndexes={[0, 1, 2, 3, 4, 5]}
+                        tasks={website}
                       />
                     )
                   }
