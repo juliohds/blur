@@ -69,7 +69,11 @@ export default class Cadastro2 extends Component {
                 <div>
                   <Button
                     color="primary"
-                    style={{ backgroundColor: "#00acc1", maxHeight: "40px" }}
+                    style={{
+                      backgroundColor: "#00acc1",
+                      maxHeight: "40px",
+                      backgroundColor: "rgb(33, 150, 243)"
+                    }}
                     onClick={() => this.openFilterMap()}
                   >
                     Sim
@@ -79,7 +83,8 @@ export default class Cadastro2 extends Component {
                     style={{
                       marginLeft: "20px",
                       maxHeight: "40px",
-                      backgroundColor: "#00acc1"
+                      backgroundColor: "#00acc1",
+                      backgroundColor: "rgb(33, 150, 243)"
                     }}
                   >
                     Não

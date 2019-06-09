@@ -47,11 +47,12 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
-export default class Cadastro3 extends Component {
+export default class Cadastro4 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterMap: true
+      filterMap: true,
+      buy: false
     };
   }
 
@@ -61,6 +62,10 @@ export default class Cadastro3 extends Component {
 
   openFilterMap = () => {
     this.setState({ filterMap: !this.state.filterMap });
+  };
+
+  buy = () => {
+    this.setState({ buy: true });
   };
 
   render() {
@@ -74,71 +79,12 @@ export default class Cadastro3 extends Component {
           iconStyle={{ background: "rgb(44, 179, 49)", color: "#fff" }}
           icon={<NumberStep number={4} />}
         >
-          <h3 className="vertical-timeline-element-title">
-            Quais dados Você Deseja?
-          </h3>
-          <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
-              <CustomTabs
-                title=""
-                headerColor="info"
-                style={{ backgroundColor: "rgb(0, 172, 193)" }}
-                tabs={[
-                  {
-                    tabName: "Dados Pessoais",
-                    tabIcon: Code,
-                    tabContent: (
-                      <Tasks
-                        checkedIndexes={[0, 3]}
-                        tasksIndexes={[
-                          0,
-                          1,
-                          2,
-                          3,
-                          4,
-                          5,
-                          6,
-                          7,
-                          8,
-                          9,
-                          10,
-                          11,
-                          12,
-                          13,
-                          14,
-                          15,
-                          16
-                        ]}
-                        tasks={bugs}
-                      />
-                    )
-                  },
-                  {
-                    tabName: "Dados Comportamentais",
-                    tabIcon: Code,
-                    tabContent: (
-                      <Tasks
-                        checkedIndexes={[0]}
-                        tasksIndexes={[0, 1]}
-                        tasks={website}
-                      />
-                    )
-                  },
-                  {
-                    tabName: "Dados de Perfil",
-                    tabIcon: Code,
-                    tabContent: (
-                      <Tasks
-                        checkedIndexes={[1]}
-                        tasksIndexes={[0, 1, 2]}
-                        tasks={server}
-                      />
-                    )
-                  }
-                ]}
-              />
-            </GridItem>
-          </GridContainer>
+          <h3 className="vertical-timeline-element-title">Confirmar Compra</h3>
+          <div className="row">
+            <div className="col-md-12">
+              <h1>teste</h1>
+            </div>
+          </div>
         </VerticalTimelineElement>
         <Button
           color="primary"
@@ -148,9 +94,9 @@ export default class Cadastro3 extends Component {
             display: "block",
             backgroundColor: "rgb(33, 150, 243)"
           }}
-          onClick={this.props.nextStep}
+          onClick={this.buy}
         >
-          Continuar
+          Comprar
         </Button>
       </VerticalTimeline>
     );
