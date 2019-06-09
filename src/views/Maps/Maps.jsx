@@ -145,7 +145,6 @@ class Maps extends Component {
         <Cadastro1 />
         <Cadastro2 />
         <Cadastro3 className={classes} />
-        <Cadastro4 />
       </StepWizard>
     );
   }

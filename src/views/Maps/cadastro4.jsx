@@ -54,6 +54,7 @@ export default class Cadastro4 extends Component {
       filterMap: true,
       buy: false
     };
+    window.scrollTo(0, 0);
   }
 
   goToNext = () => {
@@ -67,6 +68,7 @@ export default class Cadastro4 extends Component {
   buy = () => {
     this.setState({ buy: true });
   };
+  componentDidMount() {}
 
   render() {
     return (
@@ -97,7 +99,7 @@ export default class Cadastro4 extends Component {
             display: "block",
             backgroundColor: "rgb(33, 150, 243)"
           }}
-          onClick={this.buy}
+          onClick={() => this.props.handleChange()}
         >
           Comprar
         </Button>

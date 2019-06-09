@@ -11,8 +11,11 @@ import NumberStep from "./NumberStep";
 
 import Button from "components/CustomButtons/Button.jsx";
 
-import "react-autocomplete-input/dist/bundle.css";
+import ReactDOM from "react-dom";
+import Modal from "react-modal";
 
+import "react-autocomplete-input/dist/bundle.css";
+import Load from "./Load.jsx";
 import {
   VerticalTimeline,
   VerticalTimelineElement
@@ -35,6 +38,8 @@ import CustomTabs from "components/CustomTabs/CustomTabs.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 
+import Cadastro4 from "./cadastro4";
+
 import CardBody from "components/Card/CardBody.jsx";
 
 import { bugs, website, server } from "variables/general.jsx";
@@ -47,21 +52,62 @@ import {
 
 import dashboardStyle from "assets/jss/material-dashboard-react/views/dashboardStyle.jsx";
 
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: "-999",
+    transform: "translate(-50%, -50%)"
+  }
+};
+
 export default class Cadastro3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filterMap: true
+      filterMap: true,
+      load: false,
+      modalIsOpen: false
     };
+
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   goToNext = () => {
     window.scroll(120, 550);
   };
-
+  load = () => {
+    this.setState({ load: true });
+  };
   openFilterMap = () => {
     this.setState({ filterMap: !this.state.filterMap });
   };
+
+  handleChange = () => {
+    this.setState({ load: !this.state.load });
+
+    setTimeout(() => {
+      this.setState({ load: !this.state.load, modalIsOpen: true });
+    }, 3000);
+  };
+
+  openModal() {
+    this.setState({ modalIsOpen: true });
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = "#f00";
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
 
   render() {
     return (
@@ -149,18 +195,29 @@ export default class Cadastro3 extends Component {
             </GridItem>
           </GridContainer>
         </VerticalTimelineElement>
-        <Button
-          color="primary"
-          style={{
-            margin: "auto",
-            marginTop: "-20px",
-            display: "block",
-            backgroundColor: "rgb(33, 150, 243)"
-          }}
-          onClick={this.props.nextStep}
+        {this.state.load ? (
+          <Load />
+        ) : (
+          <Cadastro4 handleChange={this.handleChange} />
+        )}
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
         >
-          Continuar
-        </Button>
+          <h2 ref={subtitle => (this.subtitle = subtitle)}>Hello</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>I am a modal</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
       </VerticalTimeline>
     );
   }

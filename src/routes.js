@@ -45,40 +45,8 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/user",
-    name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
-    icon: Person,
-    component: UserProfile,
-    layout: "/admin"
-  },
-  {
-    path: "/table",
-    name: "Table List",
-    rtlName: "قائمة الجدول",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/admin"
-  },  
-  {
-    path: "/icons",
-    name: "Icons",
-    rtlName: "الرموز",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/admin"
-  },  
-  {
-    path: "/notifications",
-    name: "Notifications",
-    rtlName: "إخطارات",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin"
-  },
-  {
     path: "/rtl-page",
-    name: "RTL Support",
+    name: "Api de Dados",
     rtlName: "پشتیبانی از راست به چپ",
     icon: Language,
     component: RTLPage,
